@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exe4j version="9.0" transformSequenceNumber="3">
+  <directoryPresets config="E:/Java Project/Airline-Management-System/dist/lib" />
+  <application name="AIRMS" distributionSourceDir="E:/Java Project/Airline-Management-System/installer" />
+  <executable name="Airline" wrapperType="embed" iconSet="true" iconFile="E:/Java Project/airplane-icon.ico" executableMode="gui" />
+  <java mainClass="airline.Login" minVersion="1.4">
+    <classPath>
+      <archive location="E:/Java Project/Airline-Management-System/dist/Airlines-Management-System.jar" failOnError="false" />
+      <archive location="E:/Java Project/Airline-Management-System/dist/lib/mysql-connector-j-9.1.0.jar" failOnError="false" />
+      <archive location="E:/Java Project/Airline-Management-System/dist/lib/rs2xml.jar" failOnError="false" />
+    </classPath>
+  </java>
+</exe4j>
