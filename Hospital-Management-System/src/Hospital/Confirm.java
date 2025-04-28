@@ -8,6 +8,7 @@ package Hospital;
 import static Hospital.PatientLogin.s;
 import static Hospital.Services.Total;
 import static Hospital.Services.ser;
+import com.mysql.cj.protocol.Resultset;
 
 import java.awt.Color;
 import java.sql.PreparedStatement;
@@ -31,12 +32,13 @@ import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import org.joda.time.DateTime;
 import com.toedter.calendar.JCalendar;
+import java.awt.Component;
 
 
 
 /**
  *
- * @author mittr
+ * @author Nikhil Kumar
  */
 public class Confirm extends javax.swing.JFrame {
 
@@ -54,8 +56,9 @@ public class Confirm extends javax.swing.JFrame {
         
       initComponents();  
       try {
-            jCalendar1 = new JCalendar();
-            add(jCalendar1);
+//            jCalendar1 = new JCalendar();
+//            Component add;
+//            add = add(jCalendar1);
             jButton1.setBackground(Color.yellow);
             Connect c = new Connect();
             PreparedStatement ps = c.con.prepareStatement("SELECT * FROM users WHERE username = '"+s+"';");
@@ -95,8 +98,8 @@ public class Confirm extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         time = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -127,6 +130,10 @@ public class Confirm extends javax.swing.JFrame {
         jLabel4.setText("Preffered Appointment Time");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 294, 160, 30));
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(153, 0, 0));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 390, 360, 20));
+
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jButton1.setText("Create Appointment Letter");
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -136,10 +143,6 @@ public class Confirm extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 450, 180, 60));
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(153, 0, 0));
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 520, 360, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hospital/background.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-530, -910, 1470, 1500));
@@ -164,27 +167,33 @@ public class Confirm extends javax.swing.JFrame {
     }//GEN-LAST:event_jCalendar1PropertyChange
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-                 jLabel5.setText("Please Wait for a few seconds. Generating Invoice now...");
+//        jLabel5.setText("Please Wait for a few seconds. Generating Invoice now...");
+        int appointment_no = 0;
                 try {                                         
                     
                     des = symptoms.getText();
                     tim = time.getSelectedItem().toString();
                     
-                    
                     Connect c = new Connect();
-                    PreparedStatement ps2 = c.con.prepareStatement("DELETE FROM appointments;");
-                    PreparedStatement ps4 = c.con.prepareStatement("ALTER TABLE appointments AUTO_INCREMENT = 1;");
-                    ps2.executeUpdate();
-                    ps4.executeUpdate();
-                    
+//                    PreparedStatement ps2 = c.con.prepareStatement("DELETE FROM appointments;");
+                        PreparedStatement ps2 = c.con.prepareStatement("select id FROM appointments order by id desc limit 1;");
+//                    PreparedStatement ps4 = c.con.prepareStatement("ALTER TABLE appointments AUTO_INCREMENT = 1;");
+                    ResultSet rst = ps2.executeQuery();
+                    if (rst.next()){
+                        appointment_no = Integer.parseInt(rst.getString("id")) + 1;
+                    }
+//                    ps4.executeUpdate();
                           
                 } catch (SQLException | ClassNotFoundException ex) {
+                    System.out.println(ex);
             Logger.getLogger(Confirm.class.getName()).log(Level.SEVERE, null, ex);
         }
+
                     try {
+                        dat1 = String.valueOf(new java.sql.Date(System.currentTimeMillis()));
                         Connect c1 = new Connect();
                         PreparedStatement ps = c1.con.prepareStatement("INSERT INTO appointments VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-                        ps.setInt(1, id);
+                        ps.setInt(1, appointment_no);
                         ps.setString(2, fn);
                         ps.setString(3, ln);
                         ps.setString(4, ag);
@@ -198,9 +207,9 @@ public class Confirm extends javax.swing.JFrame {
                         ps.setString(12, tim);
                         ps.setString(13, ad);
                         ps.setString(14, gen);
-                        ps.setString(15, null);
+                        ps.setString(15, String.valueOf(appointment_no));
                         ps.executeUpdate();
-                        
+                        JOptionPane.showMessageDialog(rootPane, "Your appintment successfully booked!!");
                         
                         /*My right wrist got fractured on 17th March of this year. It has never been the same ever since. I bared with a cast for about a month after which it was decided to be taken off by the respective doctors.
                         It still hurts like hell when I try to turn it. Painkillers help but they can only shield me from the pain for so long. It isn't permanent of course.
@@ -209,31 +218,33 @@ public class Confirm extends javax.swing.JFrame {
                         Logger.getLogger(Confirm.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     // delete and auto increment = 1
-                    
-                    try {
-                        Connect c2 = new Connect();
-                        /* PreparedStatement ps = c.con.prepareStatement("SELECT id2 FROM appointments WHERE id = "+id+";");
-                        ResultSet rs = ps.executeQuery();
-                        while(rs.next()){
-                        key++;
-                        }*/
-                        JasperDesign jd = JRXmlLoader.load("C:\\Users\\mittr\\Documents\\NetBeansProjects\\Hospital Management\\src\\com\\Hospital\\Princeton\\Princeton.jrxml");
-                        JRDesignQuery q = new JRDesignQuery();
-                        String sql = "SELECT * FROM appointments WHERE ID = "+id+";";
-                        q.setText(sql);
-                        jd.setQuery(q);
-                        JasperReport jr = JasperCompileManager.compileReport(jd);
-                        JasperPrint jp = JasperFillManager.fillReport(jr, null, c2.con);
-                        JasperViewer.viewReport(jp, false);
-                        
-                        
-                        
-                        
-                        
-                        
-                    } catch (JRException | ClassNotFoundException | SQLException ex) {
-                        Logger.getLogger(Confirm.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+//                    System.out.println("Callaed 2");
+//                    try {
+//                        Connect c2 = new Connect();
+//                        /* PreparedStatement ps = c.con.prepareStatement("SELECT id2 FROM appointments WHERE id = "+id+";");
+//                        ResultSet rs = ps.executeQuery();
+//                        while(rs.next()){
+//                        key++;
+//                        }*/
+////                        System.out.println(System.getProperty("user.dir"));
+//
+//                        JasperDesign jd = JRXmlLoader.load("/Hospital/Princeton.jrxml");
+//                        JRDesignQuery q = new JRDesignQuery();
+//                        String sql = "SELECT * FROM appointments WHERE ID = "+appointment_no+";";
+//                        q.setText(sql);
+//                        jd.setQuery(q);
+//                        JasperReport jr = JasperCompileManager.compileReport(jd);
+//                        JasperPrint jp = JasperFillManager.fillReport(jr, null, c2.con);
+//                        JasperViewer.viewReport(jp, false);
+//                        
+//                        
+//                        
+//                        
+//                        
+//                        
+//                    } catch (JRException | ClassNotFoundException | SQLException ex) {
+//                        Logger.getLogger(Confirm.class.getName()).log(Level.SEVERE, null, ex);
+//                    }
                     
                     
                     

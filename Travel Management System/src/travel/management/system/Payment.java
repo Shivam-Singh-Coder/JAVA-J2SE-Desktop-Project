@@ -26,7 +26,7 @@ public class Payment extends JFrame {
         add(upiLabel);
 
         // Paytm Image
-        ImageIcon paytmIcon = new ImageIcon(ClassLoader.getSystemResource("travel/management/system/icons/paytm.jpeg"));
+        ImageIcon paytmIcon = new ImageIcon(getClass().getResource("icons/paytm.jpeg"));
         Image scaledImage = paytmIcon.getImage().getScaledInstance(800, 400, Image.SCALE_SMOOTH);
         JLabel paytmImage = new JLabel(new ImageIcon(scaledImage));
         paytmImage.setBounds(0, 150, 800, 400);

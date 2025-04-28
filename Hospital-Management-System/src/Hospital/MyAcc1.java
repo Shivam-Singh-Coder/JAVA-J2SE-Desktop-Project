@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author mittr
+ * @author Nikhil Kumar
  */
 public class MyAcc1 extends javax.swing.JFrame {
 
@@ -481,7 +481,7 @@ public class MyAcc1 extends javax.swing.JFrame {
             if((String.valueOf(jPasswordField1.getPassword())).equals(pass)){
 
                 if(ss.equals(sss)){
-                    PreparedStatement ps1 = c.con.prepareStatement("UPDATE doctors SET password = '"+ss+"';");
+                    PreparedStatement ps1 = c.con.prepareStatement("UPDATE doctors SET password = '"+ss+"' WHERE username = '"+s+"';");
                     ps1.executeUpdate();
                     JOptionPane.showMessageDialog(rootPane, "Password Successfully Updated");
                     jPanel2.setVisible(false);

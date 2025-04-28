@@ -40,7 +40,7 @@ public class BookHotel extends JFrame {
         contentPane.add(lblHeader);
 
         // Image Section
-        ImageIcon icon = new ImageIcon(ClassLoader.getSystemResource("travel/management/system/icons/book.jpg"));
+        ImageIcon icon = new ImageIcon(getClass().getResource("icons/book.jpg"));
         Image scaledImage = icon.getImage().getScaledInstance(500, 300, Image.SCALE_SMOOTH);
         JLabel lblImage = new JLabel(new ImageIcon(scaledImage));
         lblImage.setBounds(580, 120, 500, 300);

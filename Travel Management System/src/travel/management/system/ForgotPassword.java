@@ -53,7 +53,7 @@ public class ForgotPassword extends JFrame implements ActionListener {
         contentPane.add(backButton);
 
         // Image
-        ImageIcon icon = new ImageIcon(ClassLoader.getSystemResource("Travel/Management/System/icons/forgotpassword.jpg"));
+        ImageIcon icon = new ImageIcon(getClass().getResource("icons/forgotpassword.jpg"));
         Image img = icon.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
         JLabel imageLabel = new JLabel(new ImageIcon(img));
         imageLabel.setBounds(650, 80, 200, 200);

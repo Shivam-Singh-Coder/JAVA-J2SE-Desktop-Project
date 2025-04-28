@@ -7,7 +7,7 @@ package Hospital;
 
 /**
  *
- * @author mittrnn
+ * @author Nikhil Kumar
  */
 public class Admin extends javax.swing.JFrame {
 

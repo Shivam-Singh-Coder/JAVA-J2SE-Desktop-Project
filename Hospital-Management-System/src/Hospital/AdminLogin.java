@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author mittr
+ * @author Nikhil Kumar
  */
 public class AdminLogin extends javax.swing.JFrame {
 

@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author mittr
+ * @author Nikhil Kumar
  */
 public class PhForgot extends javax.swing.JFrame {
         

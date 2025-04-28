@@ -9,7 +9,7 @@ import java.awt.event.KeyEvent;
 
 /**
  *
- * @author mittr
+ * @author Nikhil Kumar
  */
 public class Frame1 extends javax.swing.JFrame {
      
@@ -17,8 +17,8 @@ public class Frame1 extends javax.swing.JFrame {
      * Creates new form Frame1
      */
     public Frame1() {
-        super("Welcome to Princeton Hospital");
-        this.setLocationRelativeTo(null);
+         super("Welcome to Nikhil Hospital Mangement System");
+         this.setLocationRelativeTo(null);
         initComponents();
         
     }
@@ -53,6 +53,7 @@ public class Frame1 extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 0, 1140, 770));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked

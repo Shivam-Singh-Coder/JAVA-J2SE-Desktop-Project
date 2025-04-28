@@ -64,7 +64,7 @@
 			</textField>
 			<image>
 				<reportElement x="2" y="0" width="555" height="132" uuid="ee3ba578-1df6-41e1-a5fc-af4e6c44c84c"/>
-				<imageExpression><![CDATA["C:\\Users\\mittr\\Desktop\\Hospitals\\header.jpg"]]></imageExpression>
+				<imageExpression><![CDATA["C:\\Users\\Nikhil Kumar\\Desktop\\Hospitals\\header.jpg"]]></imageExpression>
 			</image>
 			<line>
 				<reportElement positionType="FixRelativeToBottom" x="4" y="130" width="551" height="2" uuid="13f8068d-06a0-40b6-b854-4e8b63c35f3a"/>

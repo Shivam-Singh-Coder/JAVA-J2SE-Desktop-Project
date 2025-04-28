@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author mittr
+ * @author Nikhil Kumar
  */
 public class Finance extends javax.swing.JFrame {
 
@@ -113,6 +113,7 @@ public class Finance extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 710));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
@@ -123,7 +124,7 @@ public class Finance extends javax.swing.JFrame {
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         try {
-            Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler "+ "C:\\Users\\mittr\\Documents\\NetBeansProjects\\Hospital Management\\src\\com\\Hospital\\Princeton\\Financial Assistance Application Forms.pdf");
+            Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler "+ "/Hospital/Financial Assistance Application Forms.pdf");
                     } catch (IOException ex) {
             Logger.getLogger(Finance.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -132,7 +133,7 @@ public class Finance extends javax.swing.JFrame {
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
         
         try {
-            Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler "+ "C:\\Users\\mittr\\Documents\\NetBeansProjects\\Hospital Management\\src\\com\\Hospital\\Princeton\\FinAssistCriteria.pdf");
+            Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler "+ "/Hospital/FinAssistCriteria.pdf");
                     
                     } catch (IOException ex) {
             Logger.getLogger(Finance.class.getName()).log(Level.SEVERE, null, ex);
@@ -142,7 +143,7 @@ public class Finance extends javax.swing.JFrame {
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         try {
-            Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler "+"C:\\Users\\mittr\\Documents\\NetBeansProjects\\Hospital Management\\src\\com\\Hospital\\Princeton\\FinancialAssistPolicy2016.pdf");
+            Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler "+"/Hospital/FinancialAssistPolicy2016.pdf");
         } catch (IOException ex) {
             Logger.getLogger(Finance.class.getName()).log(Level.SEVERE, null, ex);
         }

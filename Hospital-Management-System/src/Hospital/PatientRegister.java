@@ -17,7 +17,7 @@ import org.joda.time.*;
 
 /**
  *
- * @author mittr
+ * @author Nikhil Kumar
  */
 public class PatientRegister extends javax.swing.JFrame {
      
@@ -288,6 +288,11 @@ public class PatientRegister extends javax.swing.JFrame {
         sl = lname.getText();
         se = email.getText();
         sp = phone.getText();
+        // Validate contact number
+        if (!sp.matches("\\d{10}")) {  // Check if the number is exactly 10 digits
+            JOptionPane.showMessageDialog(this, "Contact number must be a 10-digit number!");
+            return;
+        }
         sa = address1.getText();
         
         if(fradio.isSelected())
@@ -300,9 +305,24 @@ public class PatientRegister extends javax.swing.JFrame {
         srq = question.getText();
         san = answer.getText();
         sw = weight.getText();
+        // Validate weight
+        if (!sw.matches("^[0-9]+(\\.[0-9]+)?$")) {  // Check if the number is exactly 10 digits
+            JOptionPane.showMessageDialog(this, "Weight must be a digit number!");
+            return;
+        }
         sag = age.getText();
+        // Validate age
+        if (!sag.matches("^[0-9]+(\\.[0-9]+)?$")) {  // Check if the number is exactly 10 digits
+            JOptionPane.showMessageDialog(this, "Age must be a digit number!");
+            return;
+        }
         sbg = (String)(blood.getSelectedItem());
         sh = height.getText();
+        // Validate age
+        if (!sh.matches("^[0-9]+(\\.[0-9]+)?$")) {  // Check if the number is exactly 10 digits
+            JOptionPane.showMessageDialog(this, "Height must be a digit number!");
+            return;
+        }
        
         Connect c2 = new Connect();
         PreparedStatement s = c2.con.prepareStatement("select username from users");
@@ -311,19 +331,20 @@ public class PatientRegister extends javax.swing.JFrame {
         if(true){
             while(rs.next()){
                test1 = rs.getString(1);
-       if((srq.length()==0) || (san.length()==0) || (spa.length()==0) || (sun.length()==0) || (sg==null) || (sa.length()==0) || (sp.length()==0) || (se.length()==0) || (san.length()==0)|| (sl.length()==0) || (sf.length()==0) || (sbg.length()==0)|| (sh.length()==0) || (sw.length()==0)|| (sag.length()==0)){
-           jLabel13.setText("Please provide all your details. No field should be empty.");
-           flag = 0;
+                if((srq.length()==0) || (san.length()==0) || (spa.length()==0) || (sun.length()==0) || (sg==null) || (sa.length()==0) || (sp.length()==0) || (se.length()==0) || (san.length()==0)|| (sl.length()==0) || (sf.length()==0) || (sbg.length()==0)|| (sh.length()==0) || (sw.length()==0)|| (sag.length()==0)){
+                   jLabel13.setText("Please provide all your details. No field should be empty.");
+                   flag = 0;
+                }
+       
+       
+                else if(test1.equals(username.getText())){
+
+                    jLabel13.setText("An account with the same username already exists. Please Login instead");
+                    flag = 0;
+                }
+            }
         }
-       
-       
-       else if(test1.equals(username.getText())){
-           
-           jLabel13.setText("An account with the same username already exists. Please Login instead");
-           flag = 0;
-       }
-        }}
-       if(flag == 1){
+        if(flag == 1){
             Connect c = new Connect();
             PreparedStatement ps = c.con.prepareStatement("insert into users values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             

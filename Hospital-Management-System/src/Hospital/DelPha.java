@@ -15,7 +15,7 @@ import net.proteanit.sql.DbUtils;
 
 /**
  *
- * @author mittr
+ * @author Nikhil Kumar
  */
 public class DelPha extends javax.swing.JFrame {
 

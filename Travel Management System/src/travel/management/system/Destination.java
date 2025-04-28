@@ -27,21 +27,21 @@ public class Destination extends JFrame implements Runnable {
         // Initializing the slide array
         slides = new JLabel[10];
         String[] imagePaths = {
-            "travel/management/system/icons/dest1.jpeg",
-            "travel/management/system/icons/dest2.png",
-            "travel/management/system/icons/dest3.jpg",
-            "travel/management/system/icons/dest4.jpg",
-            "travel/management/system/icons/dest5.jpg",
-            "travel/management/system/icons/dest6.jpg",
-            "travel/management/system/icons/dest7.jpeg",
-            "travel/management/system/icons/dest8.jpg",
-            "travel/management/system/icons/dest9.jpg",
-            "travel/management/system/icons/dest10.jpg"
+            "icons/dest1.jpeg",
+            "icons/dest2.png",
+            "icons/dest3.jpg",
+            "icons/dest4.jpg",
+            "icons/dest5.jpg",
+            "icons/dest6.jpg",
+            "icons/dest7.jpeg",
+            "icons/dest8.jpg",
+            "icons/dest9.jpg",
+            "icons/dest10.jpg"
         };
 
         // Loading images into the slide array
         for (int i = 0; i < slides.length; i++) {
-            ImageIcon icon = new ImageIcon(ClassLoader.getSystemResource(imagePaths[i]));
+            ImageIcon icon = new ImageIcon(getClass().getResource(imagePaths[i]));
             Image scaledImage = icon.getImage().getScaledInstance(900, 700, Image.SCALE_SMOOTH);
             slides[i] = new JLabel(new ImageIcon(scaledImage));
             slides[i].setBounds(0, 70, 900, 600);

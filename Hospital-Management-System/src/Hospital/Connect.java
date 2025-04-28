@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author mittr
+ * @author Nikhil Kumar
  */
 public class Connect {
     public Connection con;

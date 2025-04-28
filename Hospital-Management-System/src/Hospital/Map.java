@@ -7,7 +7,7 @@ package Hospital;
 
 /**
  *
- * @author mittr
+ * @author Nikhil Kumar
  */
 public class Map extends javax.swing.JFrame {
 

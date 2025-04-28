@@ -9,7 +9,7 @@ import static Hospital.DoctorLogin.s;
 
 /**
  *
- * @author mittr
+ * @author Nikhil Kumar
  */
 public class Doctor extends javax.swing.JFrame {
 
@@ -17,7 +17,7 @@ public class Doctor extends javax.swing.JFrame {
      * Creates new form Doctor
      */
     public Doctor() {
-        super("Welcome to Princeton Community Hospital");
+        super("Welcome to Hospital");
         initComponents();
         jLabel10.setText("Welcome "+s);
     }

@@ -133,7 +133,7 @@ public class AddCustomer extends JFrame {
         contentPane.add(backButton);
 
         // Cropped Image on the right side
-        JLabel imageLabel = new JLabel(new ImageIcon(new ImageIcon(ClassLoader.getSystemResource("travel/management/system/icons/newcustomer.jpg"))
+        JLabel imageLabel = new JLabel(new ImageIcon(new ImageIcon(getClass().getResource("icons/newcustomer.jpg"))
                 .getImage().getScaledInstance(350, 500, Image.SCALE_SMOOTH)));
         imageLabel.setBounds(600, 100, 350, 400);
         contentPane.add(imageLabel);

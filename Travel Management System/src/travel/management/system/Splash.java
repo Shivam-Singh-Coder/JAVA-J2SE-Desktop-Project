@@ -26,7 +26,7 @@ class SplashFrame extends JFrame {
         setLayout(new BorderLayout());
         
         // Set the splash image
-        ImageIcon icon = new ImageIcon(ClassLoader.getSystemResource("Travel/Management/System/icons/splash.jpg"));
+        ImageIcon icon = new ImageIcon(getClass().getResource("icons/splash.jpg"));
         Image img = icon.getImage().getScaledInstance(INITIAL_WIDTH, INITIAL_HEIGHT, Image.SCALE_DEFAULT);
         ImageIcon scaledIcon = new ImageIcon(img);
         

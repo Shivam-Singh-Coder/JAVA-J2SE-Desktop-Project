@@ -18,7 +18,7 @@ import net.proteanit.sql.DbUtils;
 
 /**
  *
- * @author mittr
+ * @author Nikhil Kumar
  */
 public class Pharmacist extends javax.swing.JFrame {
 
@@ -28,7 +28,7 @@ public class Pharmacist extends javax.swing.JFrame {
      * Creates new form Pharmacist
      */
     public Pharmacist() {
-        super("Princeton Pharmacy - Stock check");
+        super("HMS | Stock check");
         initComponents();
         showTable();
         
@@ -182,6 +182,7 @@ public class Pharmacist extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-470, -260, 2650, 1500));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void showTable(){
@@ -199,11 +200,25 @@ public class Pharmacist extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             Connect c = new Connect();
+            
             PreparedStatement ps = c.con.prepareStatement("INSERT INTO drugs VALUES(?,?,?,?,?)");
             dr = drugg.getText().toLowerCase();
             co = company.getText().toLowerCase();
             qu = quantity.getText().toLowerCase();
             pr = price.getText();
+            PreparedStatement ps2 = c.con.prepareStatement(
+                "SELECT * FROM drugs WHERE `Drug Name` = ? AND Company = ? AND Quantity = ? AND `Price/Item` = ?"
+            );
+            ps2.setString(1, dr);     // if dr is a string
+            ps2.setString(2, co);     // if co is a string
+            ps2.setString(3, qu);        // if qu is an integer
+            ps2.setString(4, pr);     // if pr is a decimal
+            
+            ResultSet rs = ps2.executeQuery();
+            if (rs.next()){
+                JOptionPane.showMessageDialog(rootPane, "Already record exists");
+                return;
+            }
             ps.setString(1, null);
             ps.setString(2, dr);
             ps.setString(3, co);
@@ -294,23 +309,23 @@ public class Pharmacist extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
          DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-         
-         int row = jTable1.getSelectedRow();
-          id = (int) jTable1.getModel().getValueAt(row, 0);
-         if(row== -1){
-             JOptionPane.showMessageDialog(rootPane, "Please Select a drug from the table first");
-         }
-         else{
-             try {
-                 model.removeRow(row);
-                 Connect c = new Connect();
-                 PreparedStatement ps = c.con.prepareStatement("DELETE FROM drugs WHERE id = " + id + ";");
-                 ps.executeUpdate();
-                 JOptionPane.showMessageDialog(null, "Drug Deleted successfully");
-             } catch (SQLException | ClassNotFoundException ex) {
-                 Logger.getLogger(Pharmacist.class.getName()).log(Level.SEVERE, null, ex);
-             }
-         }
+int row = jTable1.getSelectedRow();
+
+if (row == -1) {
+    JOptionPane.showMessageDialog(rootPane, "Please select a drug from the table first");
+} else {
+    try {
+        int id = (int) jTable1.getModel().getValueAt(row, 0);
+        model.removeRow(row);
+        Connect c = new Connect();
+        PreparedStatement ps = c.con.prepareStatement("DELETE FROM drugs WHERE id = " + id + ";");
+        ps.executeUpdate();
+        JOptionPane.showMessageDialog(null, "Drug deleted successfully");
+    } catch (SQLException | ClassNotFoundException ex) {
+        Logger.getLogger(Pharmacist.class.getName()).log(Level.SEVERE, null, ex);
+    }
+}
+
          
     }//GEN-LAST:event_jButton3ActionPerformed
 

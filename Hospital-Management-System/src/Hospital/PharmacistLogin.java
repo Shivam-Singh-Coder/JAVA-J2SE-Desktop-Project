@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author mittr
+ * @author Nikhil Kumar
  */
 public class PharmacistLogin extends javax.swing.JFrame {
        String s, ss;
@@ -152,6 +152,7 @@ public class PharmacistLogin extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel2AncestorAdded

@@ -19,7 +19,7 @@ import net.proteanit.sql.DbUtils;
 
 /**
  *
- * @author mittr
+ * @author Nikhil Kumar
  */
 public class MyP extends javax.swing.JFrame {
 

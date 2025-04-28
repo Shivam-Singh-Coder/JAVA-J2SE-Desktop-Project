@@ -60,7 +60,7 @@ public class Home extends JFrame {
     // Adds a background image to the center of the window
     private void addBackgroundImage() {
         try {
-            ImageIcon icon = new ImageIcon(ClassLoader.getSystemResource("travel/management/system/icons/home.jpg"));
+            ImageIcon icon = new ImageIcon(getClass().getResource("icons/home.jpg"));
             Image img = icon.getImage().getScaledInstance(1950, 1000, Image.SCALE_DEFAULT);
             JLabel backgroundLabel = new JLabel(new ImageIcon(img));
             backgroundLabel.setBounds(0, 0, 1950, 1000);

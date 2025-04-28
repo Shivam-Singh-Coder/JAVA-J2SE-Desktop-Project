@@ -43,7 +43,7 @@ public class ViewPackage extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
                 
-                ImageIcon i1  = new ImageIcon(ClassLoader.getSystemResource("travel/management/system/icons/bookedDetails.jpg"));
+                ImageIcon i1  = new ImageIcon(getClass().getResource("icons/bookedDetails.jpg"));
                 Image i3 = i1.getImage().getScaledInstance(500, 350,Image.SCALE_DEFAULT);
                 ImageIcon i2 = new ImageIcon(i3);
                 JLabel la1 = new JLabel(i2);

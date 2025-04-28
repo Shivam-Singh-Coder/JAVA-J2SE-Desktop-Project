@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author mittr
+ * @author Nikhil Kumar
  */
 public class DForgot extends javax.swing.JFrame {
      

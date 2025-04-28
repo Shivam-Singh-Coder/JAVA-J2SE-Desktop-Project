@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author mittr
+ * @author Nikhil Kumar
  */
 public class AddPharmacist extends javax.swing.JFrame {
  private String sf, sl, se, sp, sa, sg, sun, spa, srq, san, test1;

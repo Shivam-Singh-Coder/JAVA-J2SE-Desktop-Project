@@ -15,7 +15,7 @@ import net.proteanit.sql.DbUtils;
 
 /**
  *
- * @author mittr
+ * @author Nikhil Kumar
  */
 public class DelDoc extends javax.swing.JFrame {
 

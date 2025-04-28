@@ -15,7 +15,7 @@
 		</conditionalStyle>
 	</style>
 	<queryString language="SQL">
-		<![CDATA[SELECT * FROM appointments;]]>
+		<![CDATA[SELECT * FROM appointments order by id desc limit 1;]]>
 	</queryString>
 	<field name="fname" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -70,7 +70,7 @@
 			</textField>
 			<image>
 				<reportElement x="0" y="0" width="555" height="93" uuid="946004ba-61ac-4db5-8a88-7163407a864a"/>
-				<imageExpression><![CDATA["C:\\Users\\mittr\\Desktop\\Hospitals\\header.png"]]></imageExpression>
+				<imageExpression><![CDATA["/Hospital/header.png"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement x="210" y="93" width="100" height="18" uuid="0faca559-5859-4d77-9be1-8a9b223317ee"/>
@@ -257,7 +257,7 @@
 				<textElement textAlignment="Right">
 					<font size="24" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Total   $]]></text>
+				<text><![CDATA[Total   Rs]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
 				<reportElement style="Detail" positionType="Float" x="375" y="62" width="180" height="34" uuid="f94b0e86-3e12-4633-8954-6275d712636b"/>

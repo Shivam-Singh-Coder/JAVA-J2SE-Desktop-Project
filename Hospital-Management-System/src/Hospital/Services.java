@@ -7,16 +7,19 @@ package Hospital;
 
 import java.awt.Color;
 import java.awt.HeadlessException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
 /**
  *
- * @author mittr
+ * @author Nikhil Kumar
  */
 public class Services extends javax.swing.JFrame {
-private static int roww = -1;
+    private static int roww = -1;
     public static String ser;
     private String pri;
     private int row;
@@ -69,7 +72,7 @@ private static int roww = -1;
 
             },
             new String [] {
-                "Service", "Appointment Cost ($)"
+                "Service", "Appointment Cost (Rs.)"
             }
         ) {
             Class[] types = new Class [] {
@@ -82,8 +85,9 @@ private static int roww = -1;
         });
         jScrollPane2.setViewportView(jTable2);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 130, 470, 450));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 130, 470, 450));
 
+        jTable1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"Cancer Center", "80"},
@@ -114,7 +118,7 @@ private static int roww = -1;
                 {"Weight Management Center", "70"}
             },
             new String [] {
-                "Service", "Appointment Cost ($)"
+                "Service", "Appointment Cost (Rs.)"
             }
         ) {
             Class[] types = new Class [] {
@@ -127,6 +131,8 @@ private static int roww = -1;
         });
         jTable1.setEditingColumn(0);
         jTable1.setEditingRow(0);
+        jTable1.setIntercellSpacing(new java.awt.Dimension(5, 5));
+        jTable1.setRowHeight(28);
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);
@@ -139,7 +145,7 @@ private static int roww = -1;
         });
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, 450));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 540, 610));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hospital/back1.png"))); // NOI18N
         jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -157,7 +163,7 @@ private static int roww = -1;
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 330, 210, 40));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 320, 210, 40));
 
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jButton2.setText("Proceed");
@@ -167,12 +173,12 @@ private static int roww = -1;
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 330, 120, 40));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1400, 330, 120, 40));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 153, 0));
         jLabel3.setText("Your Appointments");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 80, 320, 40));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 80, 320, 40));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 153, 0));
@@ -180,16 +186,16 @@ private static int roww = -1;
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 290, 40));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        jLabel5.setText("Total       $");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 610, 170, 50));
+        jLabel5.setText("Total       Rs.");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 590, 210, 50));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 610, 130, 50));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 590, 130, 50));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel8.setText("Note: It is highly recommended that you only add 1 appointment to Your Appointments.");
         jLabel8.setToolTipText("If you want multiple appointments on the same date, please go to Services again and follow the procedure again.");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 0, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, -1, -1));
 
         jButton3.setText("Remove from Your Appointments");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -197,12 +203,13 @@ private static int roww = -1;
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 400, 210, 40));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 400, 210, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hospital/background.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-700, -260, -1, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 private int click = 0;
 private void add(){
@@ -270,9 +277,14 @@ private void add(){
     } */                                   
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Confirm obj = new Confirm();
-        obj.setVisible(true);
-        this.dispose();
+        try{
+            Confirm obj = new Confirm();
+            obj.setVisible(true);
+            this.dispose();
+        }
+        catch (Exception ex) {
+            Logger.getLogger(Services.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void remove(){

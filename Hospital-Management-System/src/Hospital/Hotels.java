@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author mittr
+ * @author Nikhil Kumar
  */
 public class Hotels extends javax.swing.JFrame {
 
@@ -99,7 +99,7 @@ public class Hotels extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Hampton Inn Princeton");
+        jLabel2.setText("Hampton Inn Rays");
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hospital/star1.png"))); // NOI18N
 
@@ -112,7 +112,7 @@ public class Hotels extends javax.swing.JFrame {
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("277 Meadowfield Ln, Princeton, WV 24740");
+        jLabel8.setText("277 Meadowfield Ln, Rays, WV 24740");
         jLabel8.setToolTipText("");
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -146,7 +146,7 @@ public class Hotels extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addGap(42, 42, 42)
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40))
         );
@@ -173,7 +173,7 @@ public class Hotels extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Microtel Inn & Suites Princeton");
+        jLabel10.setText("Microtel Inn & Suites Rays");
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hospital/star1.png"))); // NOI18N
 
@@ -186,7 +186,7 @@ public class Hotels extends javax.swing.JFrame {
         jLabel15.setBackground(new java.awt.Color(255, 255, 255));
         jLabel15.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("250 Ambrose Ln, Princeton, WV 24740");
+        jLabel15.setText("250 Ambrose Ln, Rays, WV 24740");
         jLabel15.setToolTipText("");
 
         jLabel16.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -290,7 +290,7 @@ public class Hotels extends javax.swing.JFrame {
 
         jLabel17.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setText("Fairfield Inn & Suites Princeton");
+        jLabel17.setText("Fairfield Inn & Suites Rays");
 
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hospital/star1.png"))); // NOI18N
 
@@ -303,7 +303,7 @@ public class Hotels extends javax.swing.JFrame {
         jLabel22.setBackground(new java.awt.Color(255, 255, 255));
         jLabel22.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel22.setText("107 Halls Ridge Rd, Princeton, WV 24740");
+        jLabel22.setText("107 Halls Ridge Rd, Rays, WV 24740");
         jLabel22.setToolTipText("");
 
         jLabel23.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -369,7 +369,7 @@ public class Hotels extends javax.swing.JFrame {
 
         jLabel24.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel24.setText("Days Inn Princeton");
+        jLabel24.setText("Days Inn Rays");
 
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Hospital/star1.png"))); // NOI18N
 

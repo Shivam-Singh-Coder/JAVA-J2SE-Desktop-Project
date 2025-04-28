@@ -75,7 +75,7 @@ public class CheckPackage extends JFrame {
         p1.setBackground(new Color(240, 248, 255));  // Light blue background
 
         // Package Image
-        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("travel/management/system/icons/" + pack[0]));
+        ImageIcon i1 = new ImageIcon(getClass().getResource("icons/" + pack[0]));
         Image i3 = i1.getImage().getScaledInstance(550, 300, Image.SCALE_DEFAULT);
         ImageIcon i2 = new ImageIcon(i3);
         JLabel l1 = new JLabel(i2);

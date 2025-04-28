@@ -7,7 +7,7 @@ package Hospital;
 
 /**
  *
- * @author mittr
+ * @author Nikhil Kumar
  */
 public class FAQs extends javax.swing.JFrame {
 
